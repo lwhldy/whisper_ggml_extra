@@ -47,7 +47,7 @@ To use this library in your Flutter project, follow these steps:
 
 ```yaml
 dependencies:
-  whisper_ggml: ^1.1.0
+  whisper_ggml: ^1.1.1
 ```
 
 2. Run `flutter pub get` to install the package.
