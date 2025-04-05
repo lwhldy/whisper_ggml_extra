@@ -6,6 +6,8 @@
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
 	<string>Whisper ggml Example</string>
+    <key>CFBundleName</key>
+    <string>Whisper ggml example</string>
 	<key>NSMicrophoneUsageDescription</key>
     <string>Listen to user audio recording</string>
 	<key>CFBundleExecutable</key>
@@ -14,8 +16,6 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>example</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>

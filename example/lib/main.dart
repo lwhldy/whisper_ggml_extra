@@ -41,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final WhisperController whisperController = WhisperController();
   String transcribedText = 'Transcribed text will be displayed here';
   bool isProcessing = false;
+  bool isProcessingFile = false;
   bool isListening = false;
 
   @override
@@ -56,12 +57,38 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Whisper ggml example'),
       ),
-      body: Center(
+      body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Text(
-            transcribedText,
-            style: Theme.of(context).textTheme.headlineMedium,
+          child: Stack(
+            fit: StackFit.expand,
+            children: [
+              Center(
+                child: Text(
+                  transcribedText,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ),
+              Positioned(
+                bottom: 24,
+                left: 0,
+                child: Tooltip(
+                  message: 'Transcribe jfk.wav asset file',
+                  child: CircleAvatar(
+                    backgroundColor: Colors.purple.shade100,
+                    maxRadius: 25,
+                    child: isProcessingFile
+                        ? const CircularProgressIndicator()
+                        : IconButton(
+                            onPressed: transcribeJfk,
+                            icon: Icon(
+                              Icons.folder,
+                            ),
+                          ),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
@@ -134,6 +161,35 @@ class _MyHomePageState extends State<MyHomePage> {
         final Directory appDirectory = await getTemporaryDirectory();
         await audioRecorder.start(const RecordConfig(), path: '${appDirectory.path}/test.m4a');
       }
+    }
+  }
+
+  Future<void> transcribeJfk() async {
+    final Directory tempDir = await getTemporaryDirectory();
+    final asset = await rootBundle.load('assets/jfk.wav');
+    final String jfkPath = "${tempDir.path}/jfk.wav";
+    final File convertedFile = await File(jfkPath).writeAsBytes(
+      asset.buffer.asUint8List(),
+    );
+
+    setState(() {
+      isProcessingFile = true;
+    });
+
+    final result = await whisperController.transcribe(
+      model: model,
+      audioPath: convertedFile.path,
+      lang: 'en',
+    );
+
+    setState(() {
+      isProcessingFile = false;
+    });
+
+    if (result?.transcription.text != null) {
+      setState(() {
+        transcribedText = result!.transcription.text;
+      });
     }
   }
 }

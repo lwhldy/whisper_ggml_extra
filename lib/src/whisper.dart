@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'dart:isolate';
 
 import 'package:ffi/ffi.dart';
+import 'package:flutter/foundation.dart';
 import 'package:universal_io/io.dart';
 import 'package:whisper_ggml/src/models/whisper_model.dart';
 import 'package:whisper_ggml/src/whisper_audio_convert.dart';
@@ -37,10 +38,10 @@ class Whisper {
   final String? modelDir;
 
   DynamicLibrary _openLib() {
-    if (Platform.isIOS) {
-      return DynamicLibrary.process();
-    } else {
+    if (Platform.isAndroid) {
       return DynamicLibrary.open('libwhisper.so');
+    } else {
+      return DynamicLibrary.process();
     }
   }
 
@@ -51,9 +52,7 @@ class Whisper {
       () async {
         final Pointer<Utf8> data = whisperRequest.toRequestString().toNativeUtf8();
         final Pointer<Utf8> res = _openLib()
-            .lookupFunction<WReqNative, WReqNative>(
-              'request',
-            )
+            .lookupFunction<WReqNative, WReqNative>('request')
             .call(data);
 
         final Map<String, dynamic> result = json.decode(
@@ -71,27 +70,33 @@ class Whisper {
     required TranscribeRequest transcribeRequest,
     required String modelPath,
   }) async {
-    final WhisperAudioconvert converter = WhisperAudioconvert(
-      audioInput: File(transcribeRequest.audio),
-      audioOutput: File('${transcribeRequest.audio}.wav'),
-    );
+    try {
+      final WhisperAudioconvert converter = WhisperAudioconvert(
+        audioInput: File(transcribeRequest.audio),
+        audioOutput: File('${transcribeRequest.audio}.wav'),
+      );
 
-    final File? convertedFile = await converter.convert();
+      final File? convertedFile = await converter.convert();
 
-    final TranscribeRequest req = transcribeRequest.copyWith(
-      audio: convertedFile?.path ?? transcribeRequest.audio,
-    );
+      final TranscribeRequest req = transcribeRequest.copyWith(
+        audio: convertedFile?.path ?? transcribeRequest.audio,
+      );
 
-    final Map<String, dynamic> result = await _request(
-      whisperRequest: TranscribeRequestDto.fromTranscribeRequest(
-        req,
-        modelPath, // model.getPath(modelDir),
-      ),
-    );
-    if (result['text'] == null) {
-      throw Exception(result['message']);
+      final Map<String, dynamic> result = await _request(
+        whisperRequest: TranscribeRequestDto.fromTranscribeRequest(
+          req,
+          modelPath,
+        ),
+      );
+
+      if (result['text'] == null) {
+        throw Exception(result['message']);
+      }
+      return WhisperTranscribeResponse.fromJson(result);
+    } catch (e) {
+      debugPrint(e.toString());
+      rethrow;
     }
-    return WhisperTranscribeResponse.fromJson(result);
   }
 
   /// Get whisper version

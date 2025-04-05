@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:ffmpeg_kit_flutter_full_gpl/ffmpeg_kit.dart';
 import 'package:ffmpeg_kit_flutter_full_gpl/ffmpeg_session.dart';
 import 'package:ffmpeg_kit_flutter_full_gpl/return_code.dart';
+import 'package:flutter/foundation.dart';
 import 'package:universal_io/io.dart';
 
 /// Class used to convert any audio file to wav
@@ -42,9 +43,9 @@ class WhisperAudioconvert {
     if (ReturnCode.isSuccess(returnCode)) {
       return audioOutput;
     } else if (ReturnCode.isCancel(returnCode)) {
-      // logger.d('File convertion canceled');
+      debugPrint('File convertion canceled');
     } else {
-      // logger.e('File convertion error with returnCode ${returnCode?.getValue()}');
+      debugPrint('File convertion error with returnCode ${returnCode?.getValue()}');
     }
 
     return null;
