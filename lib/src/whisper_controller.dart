@@ -44,7 +44,7 @@ class WhisperController {
 
       return TranscribeResult(time: transcriptionDuration, transcription: transcription);
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
       return null;
     }
   }
