@@ -1,15 +1,15 @@
 import 'dart:async';
 
-import 'package:ffmpeg_kit_flutter_full_gpl/ffmpeg_kit.dart';
-import 'package:ffmpeg_kit_flutter_full_gpl/ffmpeg_session.dart';
-import 'package:ffmpeg_kit_flutter_full_gpl/return_code.dart';
+import 'package:ffmpeg_kit_flutter_new/ffmpeg_kit.dart';
+import 'package:ffmpeg_kit_flutter_new/ffmpeg_session.dart';
+import 'package:ffmpeg_kit_flutter_new/return_code.dart';
 import 'package:flutter/foundation.dart';
 import 'package:universal_io/io.dart';
 
 /// Class used to convert any audio file to wav
-class WhisperAudioconvert {
+class WhisperAudioConvert {
   ///
-  const WhisperAudioconvert({
+  const WhisperAudioConvert({
     required this.audioInput,
     required this.audioOutput,
   });

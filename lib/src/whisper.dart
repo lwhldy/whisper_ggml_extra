@@ -71,7 +71,7 @@ class Whisper {
     required String modelPath,
   }) async {
     try {
-      final WhisperAudioconvert converter = WhisperAudioconvert(
+      final WhisperAudioConvert converter = WhisperAudioConvert(
         audioInput: File(transcribeRequest.audio),
         audioOutput: File('${transcribeRequest.audio}.wav'),
       );
