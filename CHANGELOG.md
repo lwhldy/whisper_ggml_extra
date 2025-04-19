@@ -1,3 +1,8 @@
+## 1.4.0
+
+* Upgraded Android bindings to work with Flutter 3.29
+* Added new FFmpeg kit dependency
+
 ## 1.3.0
 
 * Upgraded Android bindings to work with Flutter 3.29
