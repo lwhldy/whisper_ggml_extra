@@ -6,9 +6,9 @@ part of 'whisper_transcribe_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WhisperTranscribeResponseImpl _$$WhisperTranscribeResponseImplFromJson(
+_WhisperTranscribeResponse _$WhisperTranscribeResponseFromJson(
         Map<String, dynamic> json) =>
-    _$WhisperTranscribeResponseImpl(
+    _WhisperTranscribeResponse(
       type: json['@type'] as String,
       text: json['text'] as String,
       segments: (json['segments'] as List<dynamic>?)
@@ -17,8 +17,8 @@ _$WhisperTranscribeResponseImpl _$$WhisperTranscribeResponseImplFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$WhisperTranscribeResponseImplToJson(
-        _$WhisperTranscribeResponseImpl instance) =>
+Map<String, dynamic> _$WhisperTranscribeResponseToJson(
+        _WhisperTranscribeResponse instance) =>
     <String, dynamic>{
       '@type': instance.type,
       'text': instance.text,

@@ -4,8 +4,7 @@ part 'transcribe_request.freezed.dart';
 
 /// Transcription request parameters
 @freezed
-class TranscribeRequest with _$TranscribeRequest {
-  ///
+abstract class TranscribeRequest with _$TranscribeRequest {
   const factory TranscribeRequest({
     required String audio,
     @Default(false) bool isTranslate,
@@ -14,11 +13,13 @@ class TranscribeRequest with _$TranscribeRequest {
     @Default('en') String language,
     @Default(false) bool isSpecialTokens,
     @Default(false) bool isNoTimestamps,
+    @Default(false) bool isRealtime,
     @Default(1) int nProcessors,
     @Default(false) bool splitOnWord,
     @Default(false) bool noFallback,
     @Default(false) bool diarize,
     @Default(false) bool speedUp,
+    @Default(null) Stream<String>? realtimeStream,
   }) = _TranscribeRequest;
   const TranscribeRequest._();
 }

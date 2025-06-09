@@ -164,6 +164,8 @@ json transcribe(json jsonBody)
 
     if (whisper_lang_id(params.language.c_str()) == -1)
     {
+//        params.language = nullptr;
+
         jsonResult["@type"] = "error";
         jsonResult["message"] = "error: unknown language";
         return jsonResult;
@@ -267,6 +269,7 @@ json transcribe(json jsonBody)
         wparams.print_timestamps = !params.no_timestamps;
         // wparams.print_special_tokens = params.print_special_tokens;
         wparams.translate = params.translate;
+
         wparams.language = params.language.c_str();
         wparams.n_threads = params.n_threads;
         wparams.split_on_word = params.split_on_word;

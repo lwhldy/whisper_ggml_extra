@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,102 +10,77 @@ part of 'whisper_version_response.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-WhisperVersionResponse _$WhisperVersionResponseFromJson(
-    Map<String, dynamic> json) {
-  return _WhisperVersionResponse.fromJson(json);
-}
 
 /// @nodoc
 mixin _$WhisperVersionResponse {
   @JsonKey(name: '@type')
-  String get type => throw _privateConstructorUsedError;
-  String get message => throw _privateConstructorUsedError;
+  String get type;
+  String get message;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $WhisperVersionResponseCopyWith<WhisperVersionResponse> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $WhisperVersionResponseCopyWith<$Res> {
-  factory $WhisperVersionResponseCopyWith(WhisperVersionResponse value,
-          $Res Function(WhisperVersionResponse) then) =
-      _$WhisperVersionResponseCopyWithImpl<$Res, WhisperVersionResponse>;
-  @useResult
-  $Res call({@JsonKey(name: '@type') String type, String message});
-}
-
-/// @nodoc
-class _$WhisperVersionResponseCopyWithImpl<$Res,
-        $Val extends WhisperVersionResponse>
-    implements $WhisperVersionResponseCopyWith<$Res> {
-  _$WhisperVersionResponseCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of WhisperVersionResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $WhisperVersionResponseCopyWith<WhisperVersionResponse> get copyWith =>
+      _$WhisperVersionResponseCopyWithImpl<WhisperVersionResponse>(
+          this as WhisperVersionResponse, _$identity);
+
+  /// Serializes this WhisperVersionResponse to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? type = null,
-    Object? message = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String,
-      message: null == message
-          ? _value.message
-          : message // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is WhisperVersionResponse &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, type, message);
+
+  @override
+  String toString() {
+    return 'WhisperVersionResponse(type: $type, message: $message)';
   }
 }
 
 /// @nodoc
-abstract class _$$WhisperVersionResponseImplCopyWith<$Res>
-    implements $WhisperVersionResponseCopyWith<$Res> {
-  factory _$$WhisperVersionResponseImplCopyWith(
-          _$WhisperVersionResponseImpl value,
-          $Res Function(_$WhisperVersionResponseImpl) then) =
-      __$$WhisperVersionResponseImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $WhisperVersionResponseCopyWith<$Res> {
+  factory $WhisperVersionResponseCopyWith(WhisperVersionResponse value,
+          $Res Function(WhisperVersionResponse) _then) =
+      _$WhisperVersionResponseCopyWithImpl;
   @useResult
   $Res call({@JsonKey(name: '@type') String type, String message});
 }
 
 /// @nodoc
-class __$$WhisperVersionResponseImplCopyWithImpl<$Res>
-    extends _$WhisperVersionResponseCopyWithImpl<$Res,
-        _$WhisperVersionResponseImpl>
-    implements _$$WhisperVersionResponseImplCopyWith<$Res> {
-  __$$WhisperVersionResponseImplCopyWithImpl(
-      _$WhisperVersionResponseImpl _value,
-      $Res Function(_$WhisperVersionResponseImpl) _then)
-      : super(_value, _then);
+class _$WhisperVersionResponseCopyWithImpl<$Res>
+    implements $WhisperVersionResponseCopyWith<$Res> {
+  _$WhisperVersionResponseCopyWithImpl(this._self, this._then);
 
+  final WhisperVersionResponse _self;
+  final $Res Function(WhisperVersionResponse) _then;
+
+  /// Create a copy of WhisperVersionResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? type = null,
     Object? message = null,
   }) {
-    return _then(_$WhisperVersionResponseImpl(
+    return _then(_self.copyWith(
       type: null == type
-          ? _value.type
+          ? _self.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
       message: null == message
-          ? _value.message
+          ? _self.message
           : message // ignore: cast_nullable_to_non_nullable
               as String,
     ));
@@ -113,13 +89,12 @@ class __$$WhisperVersionResponseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$WhisperVersionResponseImpl extends _WhisperVersionResponse {
-  const _$WhisperVersionResponseImpl(
+class _WhisperVersionResponse extends WhisperVersionResponse {
+  const _WhisperVersionResponse(
       {@JsonKey(name: '@type') required this.type, required this.message})
       : super._();
-
-  factory _$WhisperVersionResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$WhisperVersionResponseImplFromJson(json);
+  factory _WhisperVersionResponse.fromJson(Map<String, dynamic> json) =>
+      _$WhisperVersionResponseFromJson(json);
 
   @override
   @JsonKey(name: '@type')
@@ -127,55 +102,79 @@ class _$WhisperVersionResponseImpl extends _WhisperVersionResponse {
   @override
   final String message;
 
+  /// Create a copy of WhisperVersionResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'WhisperVersionResponse(type: $type, message: $message)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$WhisperVersionResponseCopyWith<_WhisperVersionResponse> get copyWith =>
+      __$WhisperVersionResponseCopyWithImpl<_WhisperVersionResponse>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$WhisperVersionResponseToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$WhisperVersionResponseImpl &&
+            other is _WhisperVersionResponse &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.message, message) || other.message == message));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, type, message);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$WhisperVersionResponseImplCopyWith<_$WhisperVersionResponseImpl>
-      get copyWith => __$$WhisperVersionResponseImplCopyWithImpl<
-          _$WhisperVersionResponseImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$WhisperVersionResponseImplToJson(
-      this,
-    );
+  String toString() {
+    return 'WhisperVersionResponse(type: $type, message: $message)';
   }
 }
 
-abstract class _WhisperVersionResponse extends WhisperVersionResponse {
-  const factory _WhisperVersionResponse(
-      {@JsonKey(name: '@type') required final String type,
-      required final String message}) = _$WhisperVersionResponseImpl;
-  const _WhisperVersionResponse._() : super._();
-
-  factory _WhisperVersionResponse.fromJson(Map<String, dynamic> json) =
-      _$WhisperVersionResponseImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$WhisperVersionResponseCopyWith<$Res>
+    implements $WhisperVersionResponseCopyWith<$Res> {
+  factory _$WhisperVersionResponseCopyWith(_WhisperVersionResponse value,
+          $Res Function(_WhisperVersionResponse) _then) =
+      __$WhisperVersionResponseCopyWithImpl;
   @override
-  @JsonKey(name: '@type')
-  String get type;
-  @override
-  String get message;
-  @override
-  @JsonKey(ignore: true)
-  _$$WhisperVersionResponseImplCopyWith<_$WhisperVersionResponseImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call({@JsonKey(name: '@type') String type, String message});
 }
+
+/// @nodoc
+class __$WhisperVersionResponseCopyWithImpl<$Res>
+    implements _$WhisperVersionResponseCopyWith<$Res> {
+  __$WhisperVersionResponseCopyWithImpl(this._self, this._then);
+
+  final _WhisperVersionResponse _self;
+  final $Res Function(_WhisperVersionResponse) _then;
+
+  /// Create a copy of WhisperVersionResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? type = null,
+    Object? message = null,
+  }) {
+    return _then(_WhisperVersionResponse(
+      type: null == type
+          ? _self.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      message: null == message
+          ? _self.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

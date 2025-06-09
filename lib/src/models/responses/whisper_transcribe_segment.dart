@@ -8,7 +8,7 @@ part 'whisper_transcribe_segment.g.dart';
 @freezed
 
 /// Transcribe segment model
-class WhisperTranscribeSegment with _$WhisperTranscribeSegment {
+abstract class WhisperTranscribeSegment with _$WhisperTranscribeSegment {
   ///
   const factory WhisperTranscribeSegment({
     @JsonKey(

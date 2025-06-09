@@ -31,7 +31,9 @@ OpenAI Whisper ASR (Automatic Speech Recognition) for Flutter using [Whisper.cpp
 
 - Seamless iOS and Android support with optimized performance.
 
-- Utilizes CORE ML for enhanced processing on iOS devices.
+- Can be configured to use specific language ("en", "fr", "de", etc) or auto-detect ("auto").
+
+- Utilizes [CORE ML](https://github.com/ggml-org/whisper.cpp/tree/master?tab=readme-ov-file#core-ml-support) for enhanced processing on iOS devices.
 
 
 
@@ -47,7 +49,7 @@ To use this library in your Flutter project, follow these steps:
 
 ```yaml
 dependencies:
-  whisper_ggml: ^1.3.0
+  whisper_ggml: ^1.4.0
 ```
 
 2. Run `flutter pub get` to install the package.

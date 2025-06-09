@@ -91,9 +91,11 @@ json transcribe(json jsonBody) noexcept
 
     if (params.language != "" && params.language != "auto" && whisper_lang_id(params.language.c_str()) == -1)
     {
-        jsonResult["@type"] = "error";
-        jsonResult["message"] = "error: unknown language = " + params.language;
-        return jsonResult;
+        params.language = nullptr;
+
+//        jsonResult["@type"] = "error";
+//        jsonResult["message"] = "error: unknown language = " + params.language;
+//        return jsonResult;
     }
 
     if (params.seed < 0)

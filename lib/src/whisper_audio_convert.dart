@@ -45,7 +45,8 @@ class WhisperAudioConvert {
     } else if (ReturnCode.isCancel(returnCode)) {
       debugPrint('File convertion canceled');
     } else {
-      debugPrint('File convertion error with returnCode ${returnCode?.getValue()}');
+      debugPrint(
+          'File convertion error with returnCode ${returnCode?.getValue()}');
     }
 
     return null;

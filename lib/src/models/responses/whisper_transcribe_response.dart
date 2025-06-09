@@ -8,7 +8,7 @@ part 'whisper_transcribe_response.g.dart';
 
 /// Response model of whisper getVersion
 @freezed
-class WhisperTranscribeResponse with _$WhisperTranscribeResponse {
+abstract class WhisperTranscribeResponse with _$WhisperTranscribeResponse {
   ///
   const factory WhisperTranscribeResponse({
     @JsonKey(name: '@type') required String type,

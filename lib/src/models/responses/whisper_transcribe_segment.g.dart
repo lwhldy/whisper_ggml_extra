@@ -6,9 +6,9 @@ part of 'whisper_transcribe_segment.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WhisperTranscribeSegmentImpl _$$WhisperTranscribeSegmentImplFromJson(
+_WhisperTranscribeSegment _$WhisperTranscribeSegmentFromJson(
         Map<String, dynamic> json) =>
-    _$WhisperTranscribeSegmentImpl(
+    _WhisperTranscribeSegment(
       fromTs: WhisperTranscribeSegment._durationFromInt(
           (json['from_ts'] as num).toInt()),
       toTs: WhisperTranscribeSegment._durationFromInt(
@@ -16,8 +16,8 @@ _$WhisperTranscribeSegmentImpl _$$WhisperTranscribeSegmentImplFromJson(
       text: json['text'] as String,
     );
 
-Map<String, dynamic> _$$WhisperTranscribeSegmentImplToJson(
-        _$WhisperTranscribeSegmentImpl instance) =>
+Map<String, dynamic> _$WhisperTranscribeSegmentToJson(
+        _WhisperTranscribeSegment instance) =>
     <String, dynamic>{
       'from_ts': instance.fromTs.inMicroseconds,
       'to_ts': instance.toTs.inMicroseconds,

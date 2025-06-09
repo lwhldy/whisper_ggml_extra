@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,159 +10,106 @@ part of 'transcribe_request_dto.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-TranscribeRequestDto _$TranscribeRequestDtoFromJson(Map<String, dynamic> json) {
-  return _TranscribeRequestDto.fromJson(json);
-}
 
 /// @nodoc
 mixin _$TranscribeRequestDto {
-  String get audio => throw _privateConstructorUsedError;
-  String get model => throw _privateConstructorUsedError;
+  String get audio;
+  String get model;
   @JsonKey(name: 'is_translate')
-  bool get isTranslate => throw _privateConstructorUsedError;
-  int get threads => throw _privateConstructorUsedError;
+  bool get isTranslate;
+  int get threads;
   @JsonKey(name: 'is_verbose')
-  bool get isVerbose => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
+  bool get isVerbose;
+  String get language;
   @JsonKey(name: 'is_special_tokens')
-  bool get isSpecialTokens => throw _privateConstructorUsedError;
+  bool get isSpecialTokens;
   @JsonKey(name: 'is_no_timestamps')
-  bool get isNoTimestamps => throw _privateConstructorUsedError;
+  bool get isNoTimestamps;
   @JsonKey(name: 'n_processors')
-  int get nProcessors => throw _privateConstructorUsedError;
+  int get nProcessors;
   @JsonKey(name: 'split_on_word')
-  bool get splitOnWord => throw _privateConstructorUsedError;
+  bool get splitOnWord;
   @JsonKey(name: 'no_fallback')
-  bool get noFallback => throw _privateConstructorUsedError;
-  bool get diarize => throw _privateConstructorUsedError;
+  bool get noFallback;
+  @JsonKey(name: 'is_realtime')
+  bool get isRealtime;
+  bool get diarize;
   @JsonKey(name: 'speed_up')
-  bool get speedUp => throw _privateConstructorUsedError;
+  bool get speedUp;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $TranscribeRequestDtoCopyWith<TranscribeRequestDto> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $TranscribeRequestDtoCopyWith<$Res> {
-  factory $TranscribeRequestDtoCopyWith(TranscribeRequestDto value,
-          $Res Function(TranscribeRequestDto) then) =
-      _$TranscribeRequestDtoCopyWithImpl<$Res, TranscribeRequestDto>;
-  @useResult
-  $Res call(
-      {String audio,
-      String model,
-      @JsonKey(name: 'is_translate') bool isTranslate,
-      int threads,
-      @JsonKey(name: 'is_verbose') bool isVerbose,
-      String language,
-      @JsonKey(name: 'is_special_tokens') bool isSpecialTokens,
-      @JsonKey(name: 'is_no_timestamps') bool isNoTimestamps,
-      @JsonKey(name: 'n_processors') int nProcessors,
-      @JsonKey(name: 'split_on_word') bool splitOnWord,
-      @JsonKey(name: 'no_fallback') bool noFallback,
-      bool diarize,
-      @JsonKey(name: 'speed_up') bool speedUp});
-}
-
-/// @nodoc
-class _$TranscribeRequestDtoCopyWithImpl<$Res,
-        $Val extends TranscribeRequestDto>
-    implements $TranscribeRequestDtoCopyWith<$Res> {
-  _$TranscribeRequestDtoCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
+  /// Create a copy of TranscribeRequestDto
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @pragma('vm:prefer-inline')
+  $TranscribeRequestDtoCopyWith<TranscribeRequestDto> get copyWith =>
+      _$TranscribeRequestDtoCopyWithImpl<TranscribeRequestDto>(
+          this as TranscribeRequestDto, _$identity);
+
+  /// Serializes this TranscribeRequestDto to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? audio = null,
-    Object? model = null,
-    Object? isTranslate = null,
-    Object? threads = null,
-    Object? isVerbose = null,
-    Object? language = null,
-    Object? isSpecialTokens = null,
-    Object? isNoTimestamps = null,
-    Object? nProcessors = null,
-    Object? splitOnWord = null,
-    Object? noFallback = null,
-    Object? diarize = null,
-    Object? speedUp = null,
-  }) {
-    return _then(_value.copyWith(
-      audio: null == audio
-          ? _value.audio
-          : audio // ignore: cast_nullable_to_non_nullable
-              as String,
-      model: null == model
-          ? _value.model
-          : model // ignore: cast_nullable_to_non_nullable
-              as String,
-      isTranslate: null == isTranslate
-          ? _value.isTranslate
-          : isTranslate // ignore: cast_nullable_to_non_nullable
-              as bool,
-      threads: null == threads
-          ? _value.threads
-          : threads // ignore: cast_nullable_to_non_nullable
-              as int,
-      isVerbose: null == isVerbose
-          ? _value.isVerbose
-          : isVerbose // ignore: cast_nullable_to_non_nullable
-              as bool,
-      language: null == language
-          ? _value.language
-          : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      isSpecialTokens: null == isSpecialTokens
-          ? _value.isSpecialTokens
-          : isSpecialTokens // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isNoTimestamps: null == isNoTimestamps
-          ? _value.isNoTimestamps
-          : isNoTimestamps // ignore: cast_nullable_to_non_nullable
-              as bool,
-      nProcessors: null == nProcessors
-          ? _value.nProcessors
-          : nProcessors // ignore: cast_nullable_to_non_nullable
-              as int,
-      splitOnWord: null == splitOnWord
-          ? _value.splitOnWord
-          : splitOnWord // ignore: cast_nullable_to_non_nullable
-              as bool,
-      noFallback: null == noFallback
-          ? _value.noFallback
-          : noFallback // ignore: cast_nullable_to_non_nullable
-              as bool,
-      diarize: null == diarize
-          ? _value.diarize
-          : diarize // ignore: cast_nullable_to_non_nullable
-              as bool,
-      speedUp: null == speedUp
-          ? _value.speedUp
-          : speedUp // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TranscribeRequestDto &&
+            (identical(other.audio, audio) || other.audio == audio) &&
+            (identical(other.model, model) || other.model == model) &&
+            (identical(other.isTranslate, isTranslate) ||
+                other.isTranslate == isTranslate) &&
+            (identical(other.threads, threads) || other.threads == threads) &&
+            (identical(other.isVerbose, isVerbose) ||
+                other.isVerbose == isVerbose) &&
+            (identical(other.language, language) ||
+                other.language == language) &&
+            (identical(other.isSpecialTokens, isSpecialTokens) ||
+                other.isSpecialTokens == isSpecialTokens) &&
+            (identical(other.isNoTimestamps, isNoTimestamps) ||
+                other.isNoTimestamps == isNoTimestamps) &&
+            (identical(other.nProcessors, nProcessors) ||
+                other.nProcessors == nProcessors) &&
+            (identical(other.splitOnWord, splitOnWord) ||
+                other.splitOnWord == splitOnWord) &&
+            (identical(other.noFallback, noFallback) ||
+                other.noFallback == noFallback) &&
+            (identical(other.isRealtime, isRealtime) ||
+                other.isRealtime == isRealtime) &&
+            (identical(other.diarize, diarize) || other.diarize == diarize) &&
+            (identical(other.speedUp, speedUp) || other.speedUp == speedUp));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      audio,
+      model,
+      isTranslate,
+      threads,
+      isVerbose,
+      language,
+      isSpecialTokens,
+      isNoTimestamps,
+      nProcessors,
+      splitOnWord,
+      noFallback,
+      isRealtime,
+      diarize,
+      speedUp);
+
+  @override
+  String toString() {
+    return 'TranscribeRequestDto(audio: $audio, model: $model, isTranslate: $isTranslate, threads: $threads, isVerbose: $isVerbose, language: $language, isSpecialTokens: $isSpecialTokens, isNoTimestamps: $isNoTimestamps, nProcessors: $nProcessors, splitOnWord: $splitOnWord, noFallback: $noFallback, isRealtime: $isRealtime, diarize: $diarize, speedUp: $speedUp)';
   }
 }
 
 /// @nodoc
-abstract class _$$TranscribeRequestDtoImplCopyWith<$Res>
-    implements $TranscribeRequestDtoCopyWith<$Res> {
-  factory _$$TranscribeRequestDtoImplCopyWith(_$TranscribeRequestDtoImpl value,
-          $Res Function(_$TranscribeRequestDtoImpl) then) =
-      __$$TranscribeRequestDtoImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $TranscribeRequestDtoCopyWith<$Res> {
+  factory $TranscribeRequestDtoCopyWith(TranscribeRequestDto value,
+          $Res Function(TranscribeRequestDto) _then) =
+      _$TranscribeRequestDtoCopyWithImpl;
   @useResult
   $Res call(
       {String audio,
@@ -175,18 +123,21 @@ abstract class _$$TranscribeRequestDtoImplCopyWith<$Res>
       @JsonKey(name: 'n_processors') int nProcessors,
       @JsonKey(name: 'split_on_word') bool splitOnWord,
       @JsonKey(name: 'no_fallback') bool noFallback,
+      @JsonKey(name: 'is_realtime') bool isRealtime,
       bool diarize,
       @JsonKey(name: 'speed_up') bool speedUp});
 }
 
 /// @nodoc
-class __$$TranscribeRequestDtoImplCopyWithImpl<$Res>
-    extends _$TranscribeRequestDtoCopyWithImpl<$Res, _$TranscribeRequestDtoImpl>
-    implements _$$TranscribeRequestDtoImplCopyWith<$Res> {
-  __$$TranscribeRequestDtoImplCopyWithImpl(_$TranscribeRequestDtoImpl _value,
-      $Res Function(_$TranscribeRequestDtoImpl) _then)
-      : super(_value, _then);
+class _$TranscribeRequestDtoCopyWithImpl<$Res>
+    implements $TranscribeRequestDtoCopyWith<$Res> {
+  _$TranscribeRequestDtoCopyWithImpl(this._self, this._then);
 
+  final TranscribeRequestDto _self;
+  final $Res Function(TranscribeRequestDto) _then;
+
+  /// Create a copy of TranscribeRequestDto
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -201,60 +152,65 @@ class __$$TranscribeRequestDtoImplCopyWithImpl<$Res>
     Object? nProcessors = null,
     Object? splitOnWord = null,
     Object? noFallback = null,
+    Object? isRealtime = null,
     Object? diarize = null,
     Object? speedUp = null,
   }) {
-    return _then(_$TranscribeRequestDtoImpl(
+    return _then(_self.copyWith(
       audio: null == audio
-          ? _value.audio
+          ? _self.audio
           : audio // ignore: cast_nullable_to_non_nullable
               as String,
       model: null == model
-          ? _value.model
+          ? _self.model
           : model // ignore: cast_nullable_to_non_nullable
               as String,
       isTranslate: null == isTranslate
-          ? _value.isTranslate
+          ? _self.isTranslate
           : isTranslate // ignore: cast_nullable_to_non_nullable
               as bool,
       threads: null == threads
-          ? _value.threads
+          ? _self.threads
           : threads // ignore: cast_nullable_to_non_nullable
               as int,
       isVerbose: null == isVerbose
-          ? _value.isVerbose
+          ? _self.isVerbose
           : isVerbose // ignore: cast_nullable_to_non_nullable
               as bool,
       language: null == language
-          ? _value.language
+          ? _self.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
       isSpecialTokens: null == isSpecialTokens
-          ? _value.isSpecialTokens
+          ? _self.isSpecialTokens
           : isSpecialTokens // ignore: cast_nullable_to_non_nullable
               as bool,
       isNoTimestamps: null == isNoTimestamps
-          ? _value.isNoTimestamps
+          ? _self.isNoTimestamps
           : isNoTimestamps // ignore: cast_nullable_to_non_nullable
               as bool,
       nProcessors: null == nProcessors
-          ? _value.nProcessors
+          ? _self.nProcessors
           : nProcessors // ignore: cast_nullable_to_non_nullable
               as int,
       splitOnWord: null == splitOnWord
-          ? _value.splitOnWord
+          ? _self.splitOnWord
           : splitOnWord // ignore: cast_nullable_to_non_nullable
               as bool,
       noFallback: null == noFallback
-          ? _value.noFallback
+          ? _self.noFallback
           : noFallback // ignore: cast_nullable_to_non_nullable
               as bool,
+      isRealtime: null == isRealtime
+          ? _self.isRealtime
+          : isRealtime // ignore: cast_nullable_to_non_nullable
+              as bool,
       diarize: null == diarize
-          ? _value.diarize
+          ? _self.diarize
           : diarize // ignore: cast_nullable_to_non_nullable
               as bool,
       speedUp: null == speedUp
-          ? _value.speedUp
+          ? _self.speedUp
           : speedUp // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
@@ -263,8 +219,8 @@ class __$$TranscribeRequestDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TranscribeRequestDtoImpl extends _TranscribeRequestDto {
-  const _$TranscribeRequestDtoImpl(
+class _TranscribeRequestDto extends TranscribeRequestDto {
+  const _TranscribeRequestDto(
       {required this.audio,
       required this.model,
       @JsonKey(name: 'is_translate') required this.isTranslate,
@@ -276,12 +232,12 @@ class _$TranscribeRequestDtoImpl extends _TranscribeRequestDto {
       @JsonKey(name: 'n_processors') required this.nProcessors,
       @JsonKey(name: 'split_on_word') required this.splitOnWord,
       @JsonKey(name: 'no_fallback') required this.noFallback,
+      @JsonKey(name: 'is_realtime') required this.isRealtime,
       required this.diarize,
       @JsonKey(name: 'speed_up') required this.speedUp})
       : super._();
-
-  factory _$TranscribeRequestDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TranscribeRequestDtoImplFromJson(json);
+  factory _TranscribeRequestDto.fromJson(Map<String, dynamic> json) =>
+      _$TranscribeRequestDtoFromJson(json);
 
   @override
   final String audio;
@@ -313,21 +269,35 @@ class _$TranscribeRequestDtoImpl extends _TranscribeRequestDto {
   @JsonKey(name: 'no_fallback')
   final bool noFallback;
   @override
+  @JsonKey(name: 'is_realtime')
+  final bool isRealtime;
+  @override
   final bool diarize;
   @override
   @JsonKey(name: 'speed_up')
   final bool speedUp;
 
+  /// Create a copy of TranscribeRequestDto
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'TranscribeRequestDto(audio: $audio, model: $model, isTranslate: $isTranslate, threads: $threads, isVerbose: $isVerbose, language: $language, isSpecialTokens: $isSpecialTokens, isNoTimestamps: $isNoTimestamps, nProcessors: $nProcessors, splitOnWord: $splitOnWord, noFallback: $noFallback, diarize: $diarize, speedUp: $speedUp)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TranscribeRequestDtoCopyWith<_TranscribeRequestDto> get copyWith =>
+      __$TranscribeRequestDtoCopyWithImpl<_TranscribeRequestDto>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$TranscribeRequestDtoToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TranscribeRequestDtoImpl &&
+            other is _TranscribeRequestDto &&
             (identical(other.audio, audio) || other.audio == audio) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.isTranslate, isTranslate) ||
@@ -347,11 +317,13 @@ class _$TranscribeRequestDtoImpl extends _TranscribeRequestDto {
                 other.splitOnWord == splitOnWord) &&
             (identical(other.noFallback, noFallback) ||
                 other.noFallback == noFallback) &&
+            (identical(other.isRealtime, isRealtime) ||
+                other.isRealtime == isRealtime) &&
             (identical(other.diarize, diarize) || other.diarize == diarize) &&
             (identical(other.speedUp, speedUp) || other.speedUp == speedUp));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -366,82 +338,128 @@ class _$TranscribeRequestDtoImpl extends _TranscribeRequestDto {
       nProcessors,
       splitOnWord,
       noFallback,
+      isRealtime,
       diarize,
       speedUp);
 
-  @JsonKey(ignore: true)
   @override
-  @pragma('vm:prefer-inline')
-  _$$TranscribeRequestDtoImplCopyWith<_$TranscribeRequestDtoImpl>
-      get copyWith =>
-          __$$TranscribeRequestDtoImplCopyWithImpl<_$TranscribeRequestDtoImpl>(
-              this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$TranscribeRequestDtoImplToJson(
-      this,
-    );
+  String toString() {
+    return 'TranscribeRequestDto(audio: $audio, model: $model, isTranslate: $isTranslate, threads: $threads, isVerbose: $isVerbose, language: $language, isSpecialTokens: $isSpecialTokens, isNoTimestamps: $isNoTimestamps, nProcessors: $nProcessors, splitOnWord: $splitOnWord, noFallback: $noFallback, isRealtime: $isRealtime, diarize: $diarize, speedUp: $speedUp)';
   }
 }
 
-abstract class _TranscribeRequestDto extends TranscribeRequestDto {
-  const factory _TranscribeRequestDto(
-      {required final String audio,
-      required final String model,
-      @JsonKey(name: 'is_translate') required final bool isTranslate,
-      required final int threads,
-      @JsonKey(name: 'is_verbose') required final bool isVerbose,
-      required final String language,
-      @JsonKey(name: 'is_special_tokens') required final bool isSpecialTokens,
-      @JsonKey(name: 'is_no_timestamps') required final bool isNoTimestamps,
-      @JsonKey(name: 'n_processors') required final int nProcessors,
-      @JsonKey(name: 'split_on_word') required final bool splitOnWord,
-      @JsonKey(name: 'no_fallback') required final bool noFallback,
-      required final bool diarize,
-      @JsonKey(name: 'speed_up')
-      required final bool speedUp}) = _$TranscribeRequestDtoImpl;
-  const _TranscribeRequestDto._() : super._();
-
-  factory _TranscribeRequestDto.fromJson(Map<String, dynamic> json) =
-      _$TranscribeRequestDtoImpl.fromJson;
-
+/// @nodoc
+abstract mixin class _$TranscribeRequestDtoCopyWith<$Res>
+    implements $TranscribeRequestDtoCopyWith<$Res> {
+  factory _$TranscribeRequestDtoCopyWith(_TranscribeRequestDto value,
+          $Res Function(_TranscribeRequestDto) _then) =
+      __$TranscribeRequestDtoCopyWithImpl;
   @override
-  String get audio;
-  @override
-  String get model;
-  @override
-  @JsonKey(name: 'is_translate')
-  bool get isTranslate;
-  @override
-  int get threads;
-  @override
-  @JsonKey(name: 'is_verbose')
-  bool get isVerbose;
-  @override
-  String get language;
-  @override
-  @JsonKey(name: 'is_special_tokens')
-  bool get isSpecialTokens;
-  @override
-  @JsonKey(name: 'is_no_timestamps')
-  bool get isNoTimestamps;
-  @override
-  @JsonKey(name: 'n_processors')
-  int get nProcessors;
-  @override
-  @JsonKey(name: 'split_on_word')
-  bool get splitOnWord;
-  @override
-  @JsonKey(name: 'no_fallback')
-  bool get noFallback;
-  @override
-  bool get diarize;
-  @override
-  @JsonKey(name: 'speed_up')
-  bool get speedUp;
-  @override
-  @JsonKey(ignore: true)
-  _$$TranscribeRequestDtoImplCopyWith<_$TranscribeRequestDtoImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  @useResult
+  $Res call(
+      {String audio,
+      String model,
+      @JsonKey(name: 'is_translate') bool isTranslate,
+      int threads,
+      @JsonKey(name: 'is_verbose') bool isVerbose,
+      String language,
+      @JsonKey(name: 'is_special_tokens') bool isSpecialTokens,
+      @JsonKey(name: 'is_no_timestamps') bool isNoTimestamps,
+      @JsonKey(name: 'n_processors') int nProcessors,
+      @JsonKey(name: 'split_on_word') bool splitOnWord,
+      @JsonKey(name: 'no_fallback') bool noFallback,
+      @JsonKey(name: 'is_realtime') bool isRealtime,
+      bool diarize,
+      @JsonKey(name: 'speed_up') bool speedUp});
 }
+
+/// @nodoc
+class __$TranscribeRequestDtoCopyWithImpl<$Res>
+    implements _$TranscribeRequestDtoCopyWith<$Res> {
+  __$TranscribeRequestDtoCopyWithImpl(this._self, this._then);
+
+  final _TranscribeRequestDto _self;
+  final $Res Function(_TranscribeRequestDto) _then;
+
+  /// Create a copy of TranscribeRequestDto
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? audio = null,
+    Object? model = null,
+    Object? isTranslate = null,
+    Object? threads = null,
+    Object? isVerbose = null,
+    Object? language = null,
+    Object? isSpecialTokens = null,
+    Object? isNoTimestamps = null,
+    Object? nProcessors = null,
+    Object? splitOnWord = null,
+    Object? noFallback = null,
+    Object? isRealtime = null,
+    Object? diarize = null,
+    Object? speedUp = null,
+  }) {
+    return _then(_TranscribeRequestDto(
+      audio: null == audio
+          ? _self.audio
+          : audio // ignore: cast_nullable_to_non_nullable
+              as String,
+      model: null == model
+          ? _self.model
+          : model // ignore: cast_nullable_to_non_nullable
+              as String,
+      isTranslate: null == isTranslate
+          ? _self.isTranslate
+          : isTranslate // ignore: cast_nullable_to_non_nullable
+              as bool,
+      threads: null == threads
+          ? _self.threads
+          : threads // ignore: cast_nullable_to_non_nullable
+              as int,
+      isVerbose: null == isVerbose
+          ? _self.isVerbose
+          : isVerbose // ignore: cast_nullable_to_non_nullable
+              as bool,
+      language: null == language
+          ? _self.language
+          : language // ignore: cast_nullable_to_non_nullable
+              as String,
+      isSpecialTokens: null == isSpecialTokens
+          ? _self.isSpecialTokens
+          : isSpecialTokens // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNoTimestamps: null == isNoTimestamps
+          ? _self.isNoTimestamps
+          : isNoTimestamps // ignore: cast_nullable_to_non_nullable
+              as bool,
+      nProcessors: null == nProcessors
+          ? _self.nProcessors
+          : nProcessors // ignore: cast_nullable_to_non_nullable
+              as int,
+      splitOnWord: null == splitOnWord
+          ? _self.splitOnWord
+          : splitOnWord // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noFallback: null == noFallback
+          ? _self.noFallback
+          : noFallback // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRealtime: null == isRealtime
+          ? _self.isRealtime
+          : isRealtime // ignore: cast_nullable_to_non_nullable
+              as bool,
+      diarize: null == diarize
+          ? _self.diarize
+          : diarize // ignore: cast_nullable_to_non_nullable
+              as bool,
+      speedUp: null == speedUp
+          ? _self.speedUp
+          : speedUp // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+// dart format on

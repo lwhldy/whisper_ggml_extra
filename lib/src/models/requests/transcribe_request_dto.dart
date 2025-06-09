@@ -11,7 +11,7 @@ part 'transcribe_request_dto.g.dart';
 
 /// Transcribe request sent to whisper.cpp
 @freezed
-class TranscribeRequestDto
+abstract class TranscribeRequestDto
     with _$TranscribeRequestDto
     implements WhisperRequestDto {
   ///
@@ -27,6 +27,7 @@ class TranscribeRequestDto
     @JsonKey(name: 'n_processors') required int nProcessors,
     @JsonKey(name: 'split_on_word') required bool splitOnWord,
     @JsonKey(name: 'no_fallback') required bool noFallback,
+    @JsonKey(name: 'is_realtime') required bool isRealtime,
     required bool diarize,
     @JsonKey(name: 'speed_up') required bool speedUp,
   }) = _TranscribeRequestDto;
@@ -50,6 +51,7 @@ class TranscribeRequestDto
       noFallback: request.noFallback,
       diarize: request.diarize,
       speedUp: request.speedUp,
+      isRealtime: request.isRealtime,
     );
   }
   const TranscribeRequestDto._();

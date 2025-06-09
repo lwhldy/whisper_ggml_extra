@@ -108,10 +108,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Future<void> initModel() async {
     try {
       /// Try initializing the model from assets
-      final bytesBase = await rootBundle.load('assets/ggml-${model.modelName}.bin');
+      final bytesBase =
+          await rootBundle.load('assets/ggml-${model.modelName}.bin');
       final modelPathBase = await whisperController.getPath(model);
       final fileBase = File(modelPathBase);
-      await fileBase.writeAsBytes(bytesBase.buffer.asUint8List(bytesBase.offsetInBytes, bytesBase.lengthInBytes));
+      await fileBase.writeAsBytes(bytesBase.buffer
+          .asUint8List(bytesBase.offsetInBytes, bytesBase.lengthInBytes));
     } catch (e) {
       /// On error try downloading the model
       await whisperController.downloadModel(model);
@@ -159,7 +161,8 @@ class _MyHomePageState extends State<MyHomePage> {
         });
 
         final Directory appDirectory = await getTemporaryDirectory();
-        await audioRecorder.start(const RecordConfig(), path: '${appDirectory.path}/test.m4a');
+        await audioRecorder.start(const RecordConfig(),
+            path: '${appDirectory.path}/test.m4a');
       }
     }
   }
@@ -179,7 +182,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final result = await whisperController.transcribe(
       model: model,
       audioPath: convertedFile.path,
-      lang: 'en',
+      lang: 'auto',
     );
 
     setState(() {

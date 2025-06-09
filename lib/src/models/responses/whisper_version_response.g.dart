@@ -6,15 +6,15 @@ part of 'whisper_version_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$WhisperVersionResponseImpl _$$WhisperVersionResponseImplFromJson(
+_WhisperVersionResponse _$WhisperVersionResponseFromJson(
         Map<String, dynamic> json) =>
-    _$WhisperVersionResponseImpl(
+    _WhisperVersionResponse(
       type: json['@type'] as String,
       message: json['message'] as String,
     );
 
-Map<String, dynamic> _$$WhisperVersionResponseImplToJson(
-        _$WhisperVersionResponseImpl instance) =>
+Map<String, dynamic> _$WhisperVersionResponseToJson(
+        _WhisperVersionResponse instance) =>
     <String, dynamic>{
       '@type': instance.type,
       'message': instance.message,
