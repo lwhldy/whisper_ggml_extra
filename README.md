@@ -83,7 +83,7 @@ final model = WhisperModel.tiny;
 ```dart
 final controller = WhisperController();
 
-final result = await whisperController.transcribe(
+final result = await controller.transcribe(
     model: model, /// Selected WhisperModel
     audioPath: audioPath, /// Path to .wav file
     lang: 'en', /// Language to transcribe
