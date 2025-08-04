@@ -6,7 +6,6 @@ part 'whisper_transcribe_segment.freezed.dart';
 part 'whisper_transcribe_segment.g.dart';
 
 @freezed
-
 /// Transcribe segment model
 abstract class WhisperTranscribeSegment with _$WhisperTranscribeSegment {
   ///
@@ -16,10 +15,7 @@ abstract class WhisperTranscribeSegment with _$WhisperTranscribeSegment {
       fromJson: WhisperTranscribeSegment._durationFromInt,
     )
     required Duration fromTs,
-    @JsonKey(
-      name: 'to_ts',
-      fromJson: WhisperTranscribeSegment._durationFromInt,
-    )
+    @JsonKey(name: 'to_ts', fromJson: WhisperTranscribeSegment._durationFromInt)
     required Duration toTs,
     required String text,
   }) = _WhisperTranscribeSegment;
@@ -29,8 +25,6 @@ abstract class WhisperTranscribeSegment with _$WhisperTranscribeSegment {
       _$WhisperTranscribeSegmentFromJson(json);
 
   static Duration _durationFromInt(int timestamp) {
-    return Duration(
-      milliseconds: timestamp * 10,
-    );
+    return Duration(milliseconds: timestamp * 10);
   }
 }

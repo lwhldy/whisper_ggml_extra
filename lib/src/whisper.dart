@@ -26,10 +26,7 @@ class Whisper {
   /// [model] is required
   /// [modelDir] is path where downloaded model will be stored.
   /// Default to library directory
-  const Whisper({
-    required this.model,
-    this.modelDir,
-  });
+  const Whisper({required this.model, this.modelDir});
 
   /// model used for transcription
   final WhisperModel model;
@@ -48,22 +45,20 @@ class Whisper {
   Future<Map<String, dynamic>> _request({
     required WhisperRequestDto whisperRequest,
   }) async {
-    return Isolate.run(
-      () async {
-        final Pointer<Utf8> data =
-            whisperRequest.toRequestString().toNativeUtf8();
-        final Pointer<Utf8> res = _openLib()
-            .lookupFunction<WReqNative, WReqNative>('request')
-            .call(data);
+    return Isolate.run(() async {
+      final Pointer<Utf8> data = whisperRequest
+          .toRequestString()
+          .toNativeUtf8();
+      final Pointer<Utf8> res = _openLib()
+          .lookupFunction<WReqNative, WReqNative>('request')
+          .call(data);
 
-        final Map<String, dynamic> result = json.decode(
-          res.toDartString(),
-        ) as Map<String, dynamic>;
+      final Map<String, dynamic> result =
+          json.decode(res.toDartString()) as Map<String, dynamic>;
 
-        malloc.free(data);
-        return result;
-      },
-    );
+      malloc.free(data);
+      return result;
+    });
   }
 
   /// Transcribe audio file to text

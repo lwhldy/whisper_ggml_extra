@@ -44,7 +44,9 @@ class WhisperController {
       final Duration transcriptionDuration = DateTime.now().difference(start);
 
       return TranscribeResult(
-          time: transcriptionDuration, transcription: transcription);
+        time: transcriptionDuration,
+        transcription: transcription,
+      );
     } catch (e) {
       debugPrint(e.toString());
       return null;

@@ -17,8 +17,6 @@ class VersionRequest with _$VersionRequest implements WhisperRequestDto {
 
   @override
   String toRequestString() {
-    return json.encode({
-      '@type': specialType,
-    });
+    return json.encode({'@type': specialType});
   }
 }

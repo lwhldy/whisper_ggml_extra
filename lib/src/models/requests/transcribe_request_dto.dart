@@ -65,9 +65,6 @@ abstract class TranscribeRequestDto
 
   @override
   String toRequestString() {
-    return json.encode({
-      '@type': specialType,
-      ...toJson(),
-    });
+    return json.encode({'@type': specialType, ...toJson()});
   }
 }
