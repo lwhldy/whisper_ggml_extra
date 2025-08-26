@@ -14,21 +14,6 @@
 #include "json/json.hpp"
 #include <stdio.h>
 
-#include "dart_api_dl.h"
-
-// Receives NativePort ID from Flutter code
-static Dart_Port_DL dart_port = 0;
-
-void debug_print(const char *message)
-{
-    if (!dart_port)
-        return;
-    Dart_CObject msg;
-    msg.type = Dart_CObject_kString;
-    msg.value.as_string = (char *)message;
-    Dart_PostCObject_DL(dart_port, &msg);
-}
-
 using json = nlohmann::json;
 
 void print(std::string value)
@@ -145,7 +130,6 @@ struct whisper_params
     bool print_progress = false;
     bool no_timestamps = false;
     bool split_on_word = false;
-    bool print_realtime = false;
 
     std::string language = "id";
     std::string prompt;
@@ -195,6 +179,8 @@ json transcribe(json jsonBody)
 
     // struct whisper_context *ctx = whisper_init(params.model.c_str());
     std::string text_result = "";
+    // for (int f = 0; f < (int)params.fname_inp.size(); ++f)
+    // {
     const auto fname_inp = params.audio;
     // WAV input
     std::vector<float> pcmf32;
@@ -262,16 +248,24 @@ json transcribe(json jsonBody)
             {
                 params.language = "en";
                 params.translate = false;
+                // printf("%s: WARNING: model is not multilingual, ignoring language and translation options\n", __func__);
             }
         }
+        // printf("%s: processing '%s' (%d samples, %.1f sec), %d threads, lang = %s, task = %s, timestamps = %d ...\n",
+        //        __func__, fname_inp.c_str(), int(pcmf32.size()), float(pcmf32.size()) / WHISPER_SAMPLE_RATE, params.n_threads,
+        //        params.language.c_str(),
+        //        params.translate ? "translate" : "transcribe",
+        //        params.no_timestamps ? 0 : 1);
+        // printf("\n");
     }
     // run the inference
     {
         whisper_full_params wparams = whisper_full_default_params(WHISPER_SAMPLING_GREEDY);
 
-        wparams.print_realtime = params.print_realtime;
+        wparams.print_realtime = false;
         wparams.print_progress = false;
         wparams.print_timestamps = !params.no_timestamps;
+        // wparams.print_special_tokens = params.print_special_tokens;
         wparams.translate = params.translate;
         wparams.language = params.language.c_str();
         wparams.n_threads = params.n_threads;
@@ -282,111 +276,57 @@ json transcribe(json jsonBody)
             wparams.token_timestamps = true;
         }
 
+        if (whisper_full(ctx, wparams, pcmf32.data(), pcmf32.size()) != 0)
+        {
+            jsonResult["@type"] = "error";
+            jsonResult["message"] = "failed to process audio";
+            return jsonResult;
+        }
 
+        
 
-//        if (!wparams.print_realtime)
-//        {
-//            if (whisper_full(ctx, wparams, pcmf32.data(), pcmf32.size()) != 0)
-//            {
-//                jsonResult["@type"] = "error";
-//                jsonResult["message"] = "failed to process audio";
-//                return jsonResult;
-//            }
-//
-//            const int n_segments = whisper_full_n_segments(ctx);
-//
-//            std::vector<json> segmentsJson = {};
-//
-//            for (int i = 0; i < n_segments; ++i)
-//            {
-//                const char *text = whisper_full_get_segment_text(ctx, i);
-//
-//                std::string str(text);
-//                text_result += str;
-//                if (params.no_timestamps)
-//                {
-//                    // printf("%s", text);
-//                    // fflush(stdout);
-//                } else {
-//                    json jsonSegment;
-//                    const int64_t t0 = whisper_full_get_segment_t0(ctx, i);
-//                    const int64_t t1 = whisper_full_get_segment_t1(ctx, i);
-//
-//                    // printf("[%s --> %s]  %s\n", to_timestamp(t0).c_str(), to_timestamp(t1).c_str(), text);
-//
-//                    jsonSegment["from_ts"] = t0;
-//                    jsonSegment["to_ts"] = t1;
-//                    jsonSegment["text"] = text;
-//
-//                    segmentsJson.push_back(jsonSegment);
-//                }
-//            }
-//
-//            if (!params.no_timestamps) {
-//                jsonResult["segments"] = segmentsJson;
-//            }
-//        } else {
-            // TODO: add realtime transcription implementation
+        // print result;
+        if (!wparams.print_realtime)
+        {
 
-            // TODO: add realtime transcription implementation
+            const int n_segments = whisper_full_n_segments(ctx);
 
-//        debug_print("GGG Processing audio in chunks...\n");
+            std::vector<json> segmentsJson = {};
 
-            // Assuming we have a function to process audio in chunks
-            const int chunk_size = 1024; // Define the size of each chunk
-            int total_frames = pcmf32.size();
-            for (int offset = 0; offset < total_frames; offset += chunk_size) {
-                int frames_to_process = std::min(chunk_size, total_frames - offset);
-                if (whisper_full(ctx, wparams, pcmf32.data() + offset, frames_to_process) != 0)
+            for (int i = 0; i < n_segments; ++i)
+            {
+                const char *text = whisper_full_get_segment_text(ctx, i);
+
+                std::string str(text);
+                text_result += str;
+                if (params.no_timestamps)
                 {
-                    jsonResult["@type"] = "error";
-                    jsonResult["message"] = "failed to process audio";
-                    return jsonResult;
-                }
+                    // printf("%s", text);
+                    // fflush(stdout);
+                } else {
+                    json jsonSegment;
+                    const int64_t t0 = whisper_full_get_segment_t0(ctx, i);
+                    const int64_t t1 = whisper_full_get_segment_t1(ctx, i);
 
-                // Process segments after each chunk
-                const int n_segments = whisper_full_n_segments(ctx);
-                for (int i = 0; i < n_segments; ++i)
-                {
-                    const char *text = whisper_full_get_segment_text(ctx, i);
-                    std::string str(text);
-                    // text_result += str;
-                    return str;
+                    // printf("[%s --> %s]  %s\n", to_timestamp(t0).c_str(), to_timestamp(t1).c_str(), text);
 
-                    if (!params.no_timestamps)
-                    {
-                        json jsonSegment;
-                        const int64_t t0 = whisper_full_get_segment_t0(ctx, i);
-                        const int64_t t1 = whisper_full_get_segment_t1(ctx, i);
+                    jsonSegment["from_ts"] = t0;
+                    jsonSegment["to_ts"] = t1;
+                    jsonSegment["text"] = text;
 
-                        jsonSegment["from_ts"] = t0;
-                        jsonSegment["to_ts"] = t1;
-                        jsonSegment["text"] = text;
-
-                        // print c++
-
-
-                        jsonResult["segments"].push_back(jsonSegment);
-
-
-                        print("123123123\n");
-                        fprintf(stderr, "[%s --> %s]  %s\n", to_timestamp(t0).c_str(), to_timestamp(t1).c_str(), text);
-                        printf("[%s --> %s]  %s\n", to_timestamp(t0).c_str(), to_timestamp(t1).c_str(), text);
-                    }
+                    segmentsJson.push_back(jsonSegment);
                 }
             }
-        }
-//    }
-    jsonResult["text"] = text_result;
 
+            if (!params.no_timestamps) {
+                jsonResult["segments"] = segmentsJson;
+            }
+        }
+    }
+    jsonResult["text"] = text_result;
+    
     whisper_free(ctx);
     return jsonResult;
-}
-
-// Ensure that the function is not-mangled; exported as a pure C function
-extern "C" void set_dart_port(Dart_Port_DL port)
-{
-    dart_port = port;
 }
 
 extern "C"

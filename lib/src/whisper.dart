@@ -46,9 +46,8 @@ class Whisper {
     required WhisperRequestDto whisperRequest,
   }) async {
     return Isolate.run(() async {
-      final Pointer<Utf8> data = whisperRequest
-          .toRequestString()
-          .toNativeUtf8();
+      final Pointer<Utf8> data =
+          whisperRequest.toRequestString().toNativeUtf8();
       final Pointer<Utf8> res = _openLib()
           .lookupFunction<WReqNative, WReqNative>('request')
           .call(data);

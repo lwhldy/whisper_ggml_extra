@@ -227,6 +227,7 @@ static const std::map<std::string, std::pair<int, std::string>> g_lang = {
         { "ba",  { 96,  "bashkir",        } },
         { "jw",  { 97,  "javanese",       } },
         { "su",  { 98,  "sundanese",      } },
+        { "auto",  { 99,  "auto",      } },
 };
 
 static const size_t MB = 1ull*1024*1024;

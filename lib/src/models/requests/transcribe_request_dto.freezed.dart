@@ -1,6 +1,5 @@
-// dart format width=80
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -214,6 +213,250 @@ class _$TranscribeRequestDtoCopyWithImpl<$Res>
           : speedUp // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
+  }
+}
+
+/// Adds pattern-matching-related methods to [TranscribeRequestDto].
+extension TranscribeRequestDtoPatterns on TranscribeRequestDto {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_TranscribeRequestDto value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _TranscribeRequestDto() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_TranscribeRequestDto value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _TranscribeRequestDto():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_TranscribeRequestDto value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _TranscribeRequestDto() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String audio,
+            String model,
+            @JsonKey(name: 'is_translate') bool isTranslate,
+            int threads,
+            @JsonKey(name: 'is_verbose') bool isVerbose,
+            String language,
+            @JsonKey(name: 'is_special_tokens') bool isSpecialTokens,
+            @JsonKey(name: 'is_no_timestamps') bool isNoTimestamps,
+            @JsonKey(name: 'n_processors') int nProcessors,
+            @JsonKey(name: 'split_on_word') bool splitOnWord,
+            @JsonKey(name: 'no_fallback') bool noFallback,
+            @JsonKey(name: 'is_realtime') bool isRealtime,
+            bool diarize,
+            @JsonKey(name: 'speed_up') bool speedUp)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _TranscribeRequestDto() when $default != null:
+        return $default(
+            _that.audio,
+            _that.model,
+            _that.isTranslate,
+            _that.threads,
+            _that.isVerbose,
+            _that.language,
+            _that.isSpecialTokens,
+            _that.isNoTimestamps,
+            _that.nProcessors,
+            _that.splitOnWord,
+            _that.noFallback,
+            _that.isRealtime,
+            _that.diarize,
+            _that.speedUp);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String audio,
+            String model,
+            @JsonKey(name: 'is_translate') bool isTranslate,
+            int threads,
+            @JsonKey(name: 'is_verbose') bool isVerbose,
+            String language,
+            @JsonKey(name: 'is_special_tokens') bool isSpecialTokens,
+            @JsonKey(name: 'is_no_timestamps') bool isNoTimestamps,
+            @JsonKey(name: 'n_processors') int nProcessors,
+            @JsonKey(name: 'split_on_word') bool splitOnWord,
+            @JsonKey(name: 'no_fallback') bool noFallback,
+            @JsonKey(name: 'is_realtime') bool isRealtime,
+            bool diarize,
+            @JsonKey(name: 'speed_up') bool speedUp)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _TranscribeRequestDto():
+        return $default(
+            _that.audio,
+            _that.model,
+            _that.isTranslate,
+            _that.threads,
+            _that.isVerbose,
+            _that.language,
+            _that.isSpecialTokens,
+            _that.isNoTimestamps,
+            _that.nProcessors,
+            _that.splitOnWord,
+            _that.noFallback,
+            _that.isRealtime,
+            _that.diarize,
+            _that.speedUp);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String audio,
+            String model,
+            @JsonKey(name: 'is_translate') bool isTranslate,
+            int threads,
+            @JsonKey(name: 'is_verbose') bool isVerbose,
+            String language,
+            @JsonKey(name: 'is_special_tokens') bool isSpecialTokens,
+            @JsonKey(name: 'is_no_timestamps') bool isNoTimestamps,
+            @JsonKey(name: 'n_processors') int nProcessors,
+            @JsonKey(name: 'split_on_word') bool splitOnWord,
+            @JsonKey(name: 'no_fallback') bool noFallback,
+            @JsonKey(name: 'is_realtime') bool isRealtime,
+            bool diarize,
+            @JsonKey(name: 'speed_up') bool speedUp)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _TranscribeRequestDto() when $default != null:
+        return $default(
+            _that.audio,
+            _that.model,
+            _that.isTranslate,
+            _that.threads,
+            _that.isVerbose,
+            _that.language,
+            _that.isSpecialTokens,
+            _that.isNoTimestamps,
+            _that.nProcessors,
+            _that.splitOnWord,
+            _that.noFallback,
+            _that.isRealtime,
+            _that.diarize,
+            _that.speedUp);
+      case _:
+        return null;
+    }
   }
 }
 
