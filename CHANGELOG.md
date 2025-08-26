@@ -1,3 +1,10 @@
+## 1.6.0
+
+* Fixed iOS issues
+* Added `auto` language support for iOS
+* Fixed `example` project
+* Increased NDK version in order to support Google 16 KB requirement
+
 ## 1.5.0
 
 * Switched main FFmpeg from **heavy** `ffmpeg_kit_flutter_new: ^1.6.1` to **lightweight** `ffmpeg_kit_flutter_new_min: ^2.1.0`
