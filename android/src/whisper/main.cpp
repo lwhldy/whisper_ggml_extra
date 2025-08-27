@@ -86,6 +86,7 @@ json transcribe(json jsonBody) noexcept
     params.model = jsonBody["model"];
     params.audio = jsonBody["audio"];
     params.split_on_word = jsonBody["split_on_word"];
+    params.diarize = jsonBody["diarize"];
     json jsonResult;
     jsonResult["@type"] = "transcribe";
 

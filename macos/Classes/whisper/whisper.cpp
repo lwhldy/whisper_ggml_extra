@@ -3675,7 +3675,7 @@ static void whisper_process_logits(
         logits[vocab.token_nosp] = -INFINITY; // TODO: ignore this token for now
 
         // [TDRZ] when tinydiarize is disabled, suppress solm token
-        if (params.tdrz_enable == false) {
+        if (!params.tdrz_enable) {
             logits[vocab.token_solm] = -INFINITY;
         }
 

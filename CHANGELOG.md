@@ -1,3 +1,8 @@
+## 1.7.0
+
+* Connected `diarize` transcribe parameter to the underlying whisper C++ code
+* Added `diarize` parameter to the `transcribe` method
+
 ## 1.6.0
 
 * Fixed iOS issues

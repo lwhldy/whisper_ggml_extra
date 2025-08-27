@@ -19,6 +19,7 @@ class WhisperController {
     required WhisperModel model,
     required String audioPath,
     String lang = 'en',
+    bool diarize = false,
   }) async {
     await initModel(model);
 
@@ -37,6 +38,7 @@ class WhisperController {
           isNoTimestamps: !withSegments,
           splitOnWord: splitWords,
           isRealtime: true,
+          diarize: diarize,
         ),
         modelPath: _modelPath,
       );
